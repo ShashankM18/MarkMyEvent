@@ -1,52 +1,117 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Event Details</title>
-  <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arijit Singh Live - Event Details | MarkMyEvent</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 </head>
 <body>
-  <header>
-    <h1>Event Details</h1>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="#">My Tickets</a>
-      <a href="#">Login</a>
-      
-      <a href="checkout.html" id="cart">Cart (<span id="cart-count">0</span>)</a>
-      
-    </nav>
-  </header>
+    <!-- Loading Screen -->
+    <div class="loading" id="loading">
+        <div class="spinner"></div>
+    </div>
 
-  <main>
-    <section class="event-details">
-     
-      <img src="https://boroktimes.com/wp-content/uploads/2023/11/arijit-singh-live-in-concert-1200x675.png" alt="Event 3">
-     
-      <h2 id="event-title">Arijith Singh Concert</h2>
-      <p>Date: <span id="event-date">November 5, 2024</span></p>
-      <p>Venue: <span id="event-venue">Prism</span></p>
-      <p>Price: Rs.<span id="event-price">5000</span></p>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <h1>MarkMyEvent</h1>
+                <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>
+                <nav id="nav">
+                    <a href="index.html">Home</a>
+                    <a href="#" onclick="showToast('Feature coming soon!', 'info')">My Tickets</a>
+                    <a href="#" onclick="showToast('Login feature coming soon!', 'info')">Login</a>
+                    <a href="checkout.html" id="cart">Cart (<span id="cart-count">0</span>)</a>
+                </nav>
+            </div>
+        </div>
+    </header>
 
-      <label for="ticket-quantity">Select Ticket Quantity:</label>
-      <select id="ticket-quantity">
-        <option value="1">1 Ticket</option>
-        <option value="2">2 Tickets</option>
-        <option value="3">3 Tickets</option>
-        <option value="4">4 Ticket</option>
-        <option value="5">5 Tickets</option>
-        <option value="6">6 Tickets</option>
-      </select>
+    <main>
+        <div class="container">
+            <div class="event-details">
+                <img src="https://boroktimes.com/wp-content/uploads/2023/11/arijit-singh-live-in-concert-1200x675.png" alt="Arijit Singh Concert">
+                
+                <div class="event-details-content">
+                    <h2 id="event-title">Arijit Singh Live</h2>
+                    
+                    <div class="event-details-meta">
+                        <div class="meta-card">
+                            <div class="meta-card-icon">📅</div>
+                            <div class="meta-card-label">Date</div>
+                            <div class="meta-card-value" id="event-date">November 5, 2024</div>
+                        </div>
+                        <div class="meta-card">
+                            <div class="meta-card-icon">📍</div>
+                            <div class="meta-card-label">Venue</div>
+                            <div class="meta-card-value" id="event-venue">Prism Arena</div>
+                        </div>
+                        <div class="meta-card">
+                            <div class="meta-card-icon">⏰</div>
+                            <div class="meta-card-label">Time</div>
+                            <div class="meta-card-value">7:30 PM - 10:30 PM</div>
+                        </div>
+                        <div class="meta-card">
+                            <div class="meta-card-icon">💰</div>
+                            <div class="meta-card-label">Price</div>
+                            <div class="meta-card-value">₹<span id="event-price">5000</span></div>
+                        </div>
+                    </div>
 
-      <a href="checkout.html" id="add-to-cart" class="btn">Add to Cart</a>
-    </section>
-  </main>
+                    <div class="event-description">
+                        <h3>About This Event</h3>
+                        <p>Experience the magic of Arijit Singh, India's most celebrated playback singer, live in concert! Known as the voice of a generation, Arijit will mesmerize you with his soulful renditions of romantic ballads and chart-topping hits that have defined Bollywood music in recent years.</p>
+                        
+                        <h4>What to Expect:</h4>
+                        <ul>
+                            <li>Live performances of iconic songs like "Tum Hi Ho", "Raabta", and "Ae Dil Hai Mushkil"</li>
+                            <li>Unplugged acoustic sessions</li>
+                            <li>Special arrangements of classic Bollywood songs</li>
+                            <li>World-class production with stunning visuals</li>
+                            <li>Limited edition concert merchandise</li>
+                            <li>VIP meet & greet packages available</li>
+                        </ul>
+                    </div>
 
-  <footer>
-    <p>&copy; MarkMy Event Platform</p>
-  </footer>
+                    <div class="quantity-selector">
+                        <label>Select Number of Tickets:</label>
+                        <div class="quantity-controls">
+                            <button class="quantity-btn" onclick="decreaseQuantity()">-</button>
+                            <div class="quantity-display" id="quantity-display">1</div>
+                            <button class="quantity-btn" onclick="increaseQuantity()">+</button>
+                        </div>
+                        <div class="total-price">
+                            Total: ₹<span id="total-price">5000</span>
+                        </div>
+                    </div>
 
-  <script src="event-details.js"></script>
+                    <div class="event-actions">
+                        <button id="add-to-cart" class="btn btn-success" onclick="addToCart()">
+                            <span>🛒</span>
+                            <span>Add to Cart</span>
+                        </button>
+                        <a href="index.html" class="btn btn-secondary">
+                            <span>←</span>
+                            <span>Back to Events</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 MarkMyEvent Platform. All rights reserved. | Crafted with ❤️ for event lovers</p>
+        </div>
+    </footer>
+
+    <!-- Toast Container -->
+    <div id="toastContainer"></div>
+
+    <script src="event-details.js"></script>
 </body>
 </html>
