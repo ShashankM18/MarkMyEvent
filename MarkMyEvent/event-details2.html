@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Event Details</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>Event Details</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="#">My Tickets</a>
+      <a href="#">Login</a>
+      
+      <a href="checkout.html" id="cart">Cart (<span id="cart-count">0</span>)</a>
+      
+    </nav>
+  </header>
+
+  <main>
+    <section class="event-details">
+      
+      <img src="https://www.royalstagfan.com/wp-content/themes/royalstagnew/rsassets/images/blog/images/blog-img.png" alt="Event 2">
+      
+      <h2 id="event-title">Arman Malik Concert</h2>
+      <p>Date: <span id="event-date">November 29, 2024</span></p>
+      <p>Venue: <span id="event-venue">One Convention</span></p>
+      <p>Price: Rs.<span id="event-price">3000</span></p>
+
+      <label for="ticket-quantity">Select Ticket Quantity:</label>
+      <select id="ticket-quantity">
+        <option value="1">1 Ticket</option>
+        <option value="2">2 Tickets</option>
+        <option value="3">3 Tickets</option>
+        <option value="4">4 Ticket</option>
+        <option value="5">5 Tickets</option>
+        <option value="6">6 Tickets</option>
+      </select>
+
+      <a href="checkout.html" id="add-to-cart" class="btn">Add to Cart</a>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; MarkMy Event Platform</p>
+  </footer>
+
+  <script src="event-details.js"></script>
+</body>
+</html>
