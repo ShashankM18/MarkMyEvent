@@ -2,56 +2,160 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Event Ticketing Platform - Home</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MarkMy Event - Professional Event Ticketing Platform</title>
     <link rel="stylesheet" href="styles.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
     <header>
-        <h1>Welcome to MarkMy Event!</h1>
-        <nav>
-        <a href="index.html">Home</a>
-        <a href="#">My Tickets</a>
-        <a href="#">Login</a>
-        
-        <a href="checkout.html" id="cart">Cart (<span id="cart-count">0</span>)</a>
-        
-        </nav>
+        <div class="header-content">
+            <h1>MarkMy Event</h1>
+            <nav>
+                <a href="index.html"><i class="fas fa-home"></i> Home</a>
+                <a href="#"><i class="fas fa-ticket-alt"></i> My Tickets</a>
+                <a href="#"><i class="fas fa-user"></i> Login</a>
+                <a href="checkout.html" id="cart">
+                    <i class="fas fa-shopping-cart"></i> Cart (<span id="cart-count">0</span>)
+                </a>
+            </nav>
+        </div>
     </header>
 
     <main>
-        <section id="events">
-            <h2>Upcoming Events</h2>
-            <div class="event-list">
-            <div class="event">
-                <img src="https://etpub.s3.amazonaws.com/Events/Images/126285_09_25_2024_11_03_30.png" alt="Event 1">
-                <h3>Dandiya Nights</h3>
-                <p>Date: Octomber 7, 2024</p>
-                <p>Venue: Om Convention</p>
-                <a href="event-details1.html" class="btn">View Details</a>
+        <section class="hero-section fade-in-up">
+            <h2>Discover Amazing Events</h2>
+        </section>
+
+        <section class="search-filter-section slide-in-right">
+            <div class="search-container">
+                <i class="fas fa-search search-icon"></i>
+                <input type="text" id="search-input" class="search-input" placeholder="Search events...">
             </div>
-        
-            <div class="event">
-                <img src="https://d2jdgazzki9vjm.cloudfront.net/biography/images/armaan-malik5.jpg" alt="Event 2">
-                <h3>Arman Malik Concert</h3>
-                <p>Date: November 29, 2024</p>
-                <p>Venue: One Convention</p>
-                <a href="event-details2.html" class="btn">View Details</a>
+            <div class="filter-container">
+                <button class="filter-btn active" data-filter="all">All Events</button>
+                <button class="filter-btn" data-filter="concert">Concerts</button>
+                <button class="filter-btn" data-filter="cultural">Cultural</button>
+                <button class="filter-btn" data-filter="dance">Dance</button>
+            </div>
+        </section>
+
+        <section id="events">
+            <div class="event-list" id="event-list">
+                <div class="event fade-in-up" data-category="cultural" data-name="dandiya nights">
+                    <div class="event-image">
+                        <img src="https://etpub.s3.amazonaws.com/Events/Images/126285_09_25_2024_11_03_30.png" alt="Dandiya Nights Event">
+                        <div class="event-badge">Cultural</div>
+                    </div>
+                    <div class="event-content">
+                        <h3>Dandiya Nights</h3>
+                        <div class="event-details">
+                            <div class="event-detail">
+                                <i class="fas fa-calendar-alt event-detail-icon"></i>
+                                <span>October 7, 2024</span>
+                            </div>
+                            <div class="event-detail">
+                                <i class="fas fa-map-marker-alt event-detail-icon"></i>
+                                <span>Om Convention</span>
+                            </div>
+                            <div class="event-detail">
+                                <i class="fas fa-rupee-sign event-detail-icon"></i>
+                                <span>From ₹1000</span>
+                            </div>
+                            <div class="event-detail">
+                                <i class="fas fa-clock event-detail-icon"></i>
+                                <span>7:00 PM - 11:00 PM</span>
+                            </div>
+                        </div>
+                        <a href="event-details1.html" class="btn">
+                            <i class="fas fa-eye"></i> View Details
+                        </a>
+                    </div>
+                </div>
+
+                <div class="event fade-in-up" data-category="concert" data-name="armaan malik concert">
+                    <div class="event-image">
+                        <img src="https://d2jdgazzki9vjm.cloudfront.net/biography/images/armaan-malik5.jpg" alt="Armaan Malik Concert">
+                        <div class="event-badge">Concert</div>
+                    </div>
+                    <div class="event-content">
+                        <h3>Armaan Malik Concert</h3>
+                        <div class="event-details">
+                            <div class="event-detail">
+                                <i class="fas fa-calendar-alt event-detail-icon"></i>
+                                <span>November 29, 2024</span>
+                            </div>
+                            <div class="event-detail">
+                                <i class="fas fa-map-marker-alt event-detail-icon"></i>
+                                <span>One Convention</span>
+                            </div>
+                            <div class="event-detail">
+                                <i class="fas fa-rupee-sign event-detail-icon"></i>
+                                <span>From ₹2500</span>
+                            </div>
+                            <div class="event-detail">
+                                <i class="fas fa-clock event-detail-icon"></i>
+                                <span>8:00 PM - 11:30 PM</span>
+                            </div>
+                        </div>
+                        <a href="event-details2.html" class="btn">
+                            <i class="fas fa-eye"></i> View Details
+                        </a>
+                    </div>
+                </div>
+
+                <div class="event fade-in-up" data-category="concert" data-name="arijit singh concert">
+                    <div class="event-image">
+                        <img src="https://w0.peakpx.com/wallpaper/846/889/HD-wallpaper-arijit-singh-live-in-concert-with-world-musicians.jpg" alt="Arijit Singh Concert">
+                        <div class="event-badge">Concert</div>
+                    </div>
+                    <div class="event-content">
+                        <h3>Arijit Singh Concert</h3>
+                        <div class="event-details">
+                            <div class="event-detail">
+                                <i class="fas fa-calendar-alt event-detail-icon"></i>
+                                <span>November 5, 2024</span>
+                            </div>
+                            <div class="event-detail">
+                                <i class="fas fa-map-marker-alt event-detail-icon"></i>
+                                <span>Prism Club</span>
+                            </div>
+                            <div class="event-detail">
+                                <i class="fas fa-rupee-sign event-detail-icon"></i>
+                                <span>From ₹3500</span>
+                            </div>
+                            <div class="event-detail">
+                                <i class="fas fa-clock event-detail-icon"></i>
+                                <span>7:30 PM - 11:00 PM</span>
+                            </div>
+                        </div>
+                        <a href="event-details3.html" class="btn">
+                            <i class="fas fa-eye"></i> View Details
+                        </a>
+                    </div>
+                </div>
             </div>
 
-            <div class="event">
-                <img src="https://w0.peakpx.com/wallpaper/846/889/HD-wallpaper-arijit-singh-live-in-concert-with-world-musicians.jpg" alt="Event 3">
-                <h3>Arijith Singh Concert </h3>
-                <p>Date: November 5, 2024</p>
-                <p>Venue: Prism</p>
-                <a href="event-details3.html" class="btn">View Details</a>
-            </div>
+            <div class="empty-state" id="empty-state" style="display: none;">
+                <div class="empty-state-icon">
+                    <i class="fas fa-search"></i>
+                </div>
+                <h3>No Events Found</h3>
+                <p>Try adjusting your search criteria or browse all events.</p>
+                <button class="btn" onclick="clearFilters()">
+                    <i class="fas fa-refresh"></i> Show All Events
+                </button>
             </div>
         </section>
     </main>
 
     <footer>
-        <p>&copy; MarkMy Event Platform </p>
+        <p>&copy; 2024 MarkMy Event Platform. All rights reserved.</p>
     </footer>
+
+    <!-- Notification container -->
+    <div id="notification-container"></div>
 
     <script src="home.js"></script>
 </body>
