@@ -3,49 +3,114 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Event Details</title>
+  <title>Arijit Singh Concert - Event Details | MarkMy Event</title>
   <link rel="stylesheet" href="styles.css">
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
   <header>
-    <h1>Event Details</h1>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="#">My Tickets</a>
-      <a href="#">Login</a>
-      
-      <a href="checkout.html" id="cart">Cart (<span id="cart-count">0</span>)</a>
-      
-    </nav>
+    <div class="header-content">
+      <h1>MarkMy Event</h1>
+      <nav>
+        <a href="index.html"><i class="fas fa-home"></i> Home</a>
+        <a href="#"><i class="fas fa-ticket-alt"></i> My Tickets</a>
+        <a href="#"><i class="fas fa-user"></i> Login</a>
+        <a href="checkout.html" id="cart">
+          <i class="fas fa-shopping-cart"></i> Cart (<span id="cart-count">0</span>)
+        </a>
+      </nav>
+    </div>
   </header>
 
   <main>
-    <section class="event-details">
-     
-      <img src="https://boroktimes.com/wp-content/uploads/2023/11/arijit-singh-live-in-concert-1200x675.png" alt="Event 3">
-     
-      <h2 id="event-title">Arijith Singh Concert</h2>
-      <p>Date: <span id="event-date">November 5, 2024</span></p>
-      <p>Venue: <span id="event-venue">Prism</span></p>
-      <p>Price: Rs.<span id="event-price">5000</span></p>
+    <section class="event-details fade-in-up">
+      <div class="event-details-image">
+        <img src="https://w0.peakpx.com/wallpaper/846/889/HD-wallpaper-arijit-singh-live-in-concert-with-world-musicians.jpg" alt="Arijit Singh Concert">
+      </div>
+      
+      <div class="event-details-content">
+        <h2 id="event-title">Arijit Singh Concert</h2>
+        
+        <div class="event-info-grid">
+          <div class="event-info-item">
+            <i class="fas fa-calendar-alt event-info-icon"></i>
+            <div>
+              <div class="event-info-text">Date</div>
+              <span id="event-date">November 5, 2024</span>
+            </div>
+          </div>
+          
+          <div class="event-info-item">
+            <i class="fas fa-map-marker-alt event-info-icon"></i>
+            <div>
+              <div class="event-info-text">Venue</div>
+              <span id="event-venue">Prism Club</span>
+            </div>
+          </div>
+          
+          <div class="event-info-item">
+            <i class="fas fa-clock event-info-icon"></i>
+            <div>
+              <div class="event-info-text">Time</div>
+              <span>7:30 PM - 11:00 PM</span>
+            </div>
+          </div>
+          
+          <div class="event-info-item">
+            <i class="fas fa-rupee-sign event-info-icon"></i>
+            <div>
+              <div class="event-info-text">Price</div>
+              <span>₹<span id="event-price">3500</span> per ticket</span>
+            </div>
+          </div>
+        </div>
 
-      <label for="ticket-quantity">Select Ticket Quantity:</label>
-      <select id="ticket-quantity">
-        <option value="1">1 Ticket</option>
-        <option value="2">2 Tickets</option>
-        <option value="3">3 Tickets</option>
-        <option value="4">4 Ticket</option>
-        <option value="5">5 Tickets</option>
-        <option value="6">6 Tickets</option>
-      </select>
+        <div class="event-description">
+          <h3>About This Event</h3>
+          <p>Experience the magic of Arijit Singh live! India's most beloved playback singer brings his soulful voice and emotional depth to an unforgettable evening of music. From romantic ballads to energetic numbers, this concert promises to be a musical journey you'll never forget.</p>
+          
+          <h4>Event Highlights:</h4>
+          <ul>
+            <li><i class="fas fa-microphone"></i> Live performance by Arijit Singh</li>
+            <li><i class="fas fa-heart"></i> Greatest romantic hits and soulful melodies</li>
+            <li><i class="fas fa-users"></i> Live band and world-class musicians</li>
+            <li><i class="fas fa-star"></i> Special acoustic segments</li>
+            <li><i class="fas fa-gift"></i> Exclusive merchandise available</li>
+          </ul>
+        </div>
 
-      <a href="checkout.html" id="add-to-cart" class="btn">Add to Cart</a>
+        <div class="ticket-selection">
+          <label for="ticket-quantity">Select Number of Tickets:</label>
+          <select id="ticket-quantity">
+            <option value="1">1 Ticket - ₹3500</option>
+            <option value="2">2 Tickets - ₹7000</option>
+            <option value="3">3 Tickets - ₹10500</option>
+            <option value="4">4 Tickets - ₹14000</option>
+            <option value="5">5 Tickets - ₹17500</option>
+            <option value="6">6 Tickets - ₹21000</option>
+          </select>
+
+          <div class="price-summary">
+            <div class="total-price">
+              Total: ₹<span id="total-price">3500</span>
+            </div>
+          </div>
+
+          <button id="add-to-cart" class="btn btn-success">
+            <i class="fas fa-cart-plus"></i> Add to Cart
+          </button>
+        </div>
+      </div>
     </section>
   </main>
 
   <footer>
-    <p>&copy; MarkMy Event Platform</p>
+    <p>&copy; 2024 MarkMy Event Platform. All rights reserved.</p>
   </footer>
+
+  <!-- Notification container -->
+  <div id="notification-container"></div>
 
   <script src="event-details.js"></script>
 </body>

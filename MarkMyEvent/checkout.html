@@ -3,29 +3,126 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Checkout</title>
+  <title>Checkout - Your Cart | MarkMy Event</title>
   <link rel="stylesheet" href="styles.css">
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
   <header>
-    <h1>Your Cart</h1>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="#">My Tickets</a>
-      <a href="#">Login</a>
-    </nav>
+    <div class="header-content">
+      <h1>MarkMy Event</h1>
+      <nav>
+        <a href="index.html"><i class="fas fa-home"></i> Home</a>
+        <a href="#"><i class="fas fa-ticket-alt"></i> My Tickets</a>
+        <a href="#"><i class="fas fa-user"></i> Login</a>
+        <a href="checkout.html" id="cart">
+          <i class="fas fa-shopping-cart"></i> Cart (<span id="cart-count">0</span>)
+        </a>
+      </nav>
+    </div>
   </header>
 
   <main>
-    <section id="cart-items">
-      <!-- Cart items will be dynamically added here -->
+    <section class="checkout-header fade-in-up">
+      <h2><i class="fas fa-shopping-cart"></i> Your Cart</h2>
     </section>
-    <button onclick="proceedToCheckout()" class="btn">Proceed to Payment</button>
+
+    <section class="checkout-content">
+      <div class="cart-section" id="cart-section">
+        <div id="cart-items">
+          <!-- Cart items will be dynamically added here -->
+        </div>
+
+        <div class="empty-cart" id="empty-cart" style="display: none;">
+          <div class="empty-state">
+            <div class="empty-state-icon">
+              <i class="fas fa-shopping-cart"></i>
+            </div>
+            <h3>Your cart is empty</h3>
+            <p>Discover amazing events and add tickets to your cart</p>
+            <a href="index.html" class="btn">
+              <i class="fas fa-search"></i> Browse Events
+            </a>
+          </div>
+        </div>
+
+        <div class="cart-summary" id="cart-summary" style="display: none;">
+          <div class="summary-row">
+            <span>Subtotal:</span>
+            <span class="cart-subtotal">₹<span id="subtotal">0</span></span>
+          </div>
+          <div class="summary-row">
+            <span>Service Fee:</span>
+            <span class="service-fee">₹<span id="service-fee">0</span></span>
+          </div>
+          <div class="summary-row total-row">
+            <span>Total:</span>
+            <span class="cart-total">₹<span id="total">0</span></span>
+          </div>
+          
+          <button onclick="proceedToCheckout()" class="btn btn-success checkout-btn">
+            <i class="fas fa-credit-card"></i> Proceed to Payment
+          </button>
+        </div>
+      </div>
+    </section>
   </main>
 
   <footer>
-    <p>&copy; MarkMy Event Platform</p>
+    <p>&copy; 2024 MarkMy Event Platform. All rights reserved.</p>
   </footer>
+
+  <!-- Notification container -->
+  <div id="notification-container"></div>
+
+  <!-- Payment Modal -->
+  <div id="payment-modal" class="modal" style="display: none;">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3><i class="fas fa-credit-card"></i> Payment Details</h3>
+        <button class="modal-close" onclick="closePaymentModal()">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="payment-summary">
+          <h4>Order Summary</h4>
+          <div id="payment-items"></div>
+          <div class="payment-total">
+            Total: ₹<span id="payment-total">0</span>
+          </div>
+        </div>
+        
+        <form id="payment-form" class="payment-form">
+          <div class="form-group">
+            <label for="cardholder-name">Cardholder Name</label>
+            <input type="text" id="cardholder-name" required placeholder="Enter cardholder name">
+          </div>
+          
+          <div class="form-group">
+            <label for="card-number">Card Number</label>
+            <input type="text" id="card-number" required placeholder="1234 5678 9012 3456" maxlength="19">
+          </div>
+          
+          <div class="form-row">
+            <div class="form-group">
+              <label for="expiry-date">Expiry Date</label>
+              <input type="text" id="expiry-date" required placeholder="MM/YY" maxlength="5">
+            </div>
+            <div class="form-group">
+              <label for="cvv">CVV</label>
+              <input type="text" id="cvv" required placeholder="123" maxlength="3">
+            </div>
+          </div>
+          
+          <button type="submit" class="btn btn-success payment-submit">
+            <i class="fas fa-lock"></i> Complete Payment
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
 
   <script src="checkout.js"></script>
 </body>
